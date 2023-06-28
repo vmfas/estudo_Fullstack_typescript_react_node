@@ -12,12 +12,12 @@ export class CompanyAccount extends DioAccount {
 
     getLoan = (value: number): void => {
 
-        if (this.validateStatus()) {
+        if (this.status) {
             this.balance = this.balance + value
             this.emprestimoPendente = this.emprestimoPendente + value
             this.emprestimoStatus = true
 
-            console.log(`Empréstimo efetuado no valor de R$ ${value}. Saldo atual: ${this.balance}`)
+            console.log(`Empréstimo efetuado no valor de R$ ${value}. Saldo atual: ${this.balance}.`)
         } else {
             console.log(`${this.validateStatus()}, você não pode fazer um empréstimo`)
         }
@@ -33,8 +33,9 @@ export class CompanyAccount extends DioAccount {
     }
 
     payLoan = (value: number) => {
-        if (this.emprestimoStatus) {
+        if (this.status) {
             this.emprestimoPendente = this.emprestimoPendente - value
+            this.balance = this.balance - value
 
             console.log(`Você fez um pagamento de R$ ${value} de um empréstimo pendente.`)
             if (this.emprestimoPendente > 0) {
