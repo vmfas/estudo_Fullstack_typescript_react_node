@@ -3,7 +3,7 @@ import { DioAccount } from "./class/DioAccount"
 import { PeopleAccount } from "./class/PeopleAccount"
 import { PremiumAccount } from "./class/PremiumAccount"
 
-const Vinicius: CompanyAccount = new CompanyAccount ( 'Vinicius Miguel', 4002)
+const Vinicius: CompanyAccount = new CompanyAccount ('Vinicius Miguel', 4002)
 console.log(Vinicius)
 Vinicius.getBalance()
 
@@ -17,6 +17,12 @@ Vinicius.loanStatus()
 Vinicius.payLoan(100)
 Vinicius.loanStatus()
 
-const Miguel: PremiumAccount = new PremiumAccount ( 'Miguel', 3443)
+const Miguel: PremiumAccount = new PremiumAccount ('Miguel', 3443)
 console.log(Miguel)
 Miguel.premiumDeposit(500)
+
+const abacate: CompanyAccount = new CompanyAccount ('abacate', 123)
+abacate.validateStatus()
+abacate.deactivateAccount()
+abacate.validateStatus()
+abacate.acticateAccount()
